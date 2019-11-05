@@ -42,19 +42,10 @@ RUN \
   wget https://raw.githubusercontent.com/laurendiperna/Churn_Scripts/master/Transformation_Script.py && \
   wget https://raw.githubusercontent.com/laurendiperna/Churn_Scripts/master/Modeling_Script.py
 
-# Define a mountable data directory
-#VOLUME \
-#  ["/data"]
-
-# Define the working directory
-#WORKDIR \
-#  /data
+COPY ./hadoop/core-site.xml /etc/hadoop/core-site.xml
 
 EXPOSE 54321
 EXPOSE 54322
 
-#ENTRYPOINT ["java", "-Xmx4g", "-jar", "/opt/h2o.jar"]
-# Define default command
-
 CMD \
-  ["java", "-Xmx4g", "-jar", "/opt/h2o.jar"]
+  ["java", "-Xmx4g", "-jar", "/opt/h2o.jar", "-hdfs_config", "/etc/hadoop/core-site.xml"]

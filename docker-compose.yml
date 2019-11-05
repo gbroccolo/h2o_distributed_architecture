@@ -1,0 +1,35 @@
+version: '3.5'
+
+services:
+
+  h2oai_server_1:
+    build: .
+    image: h2oai_server:latest
+    container_name: h2oai_server_1
+    restart: always
+    ports:
+      - "0.0.0.0:54321:54321"
+
+  h2oai_server_2:
+    build: .
+    image: h2oai_server:latest
+    container_name: h2oai_server_2
+    restart: always
+    ports:
+      - "0.0.0.0:54322:54321"
+
+  h2oai_server_3:
+    build: .
+    image: h2oai_server:latest
+    container_name: h2oai_server_3
+    restart: always
+    ports:
+      - "0.0.0.0:54323:54321"
+
+  h2oai_server_4:
+    build: .
+    image: h2oai_server:latest
+    container_name: h2oai_server_4
+    restart: always
+    ports:
+      - "0.0.0.0:54324:54321"
